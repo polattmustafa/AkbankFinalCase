@@ -13,4 +13,9 @@ public class CityService extends BaseEntityService<City, CityRepository>{
     public CityService(CityRepository anyRepo) {
         super(anyRepo);
     }
+
+    public City findByName(String name) {
+        return getAnyRepo().findCityByName(name);
+    }
+
 }

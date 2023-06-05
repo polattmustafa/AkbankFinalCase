@@ -39,4 +39,11 @@ public class CityControllerContractImpl implements CityControllerContract {
         List<City> cityList = cityService.findAll();
         return CityMapper.INSTANCE.convertToCityDTOList(cityList);
     }
+
+    @Override
+    public CityDTO findCityByName(String name) {
+        City city = cityService.findByName(name);
+        return CityMapper.INSTANCE.convertToCityDTO(city);
+    }
+
 }

@@ -16,4 +16,6 @@ public interface CityControllerContract {
 
     List<CityDTO> findAll();
 
+    CityDTO findCityByName(String city);
+
 }
