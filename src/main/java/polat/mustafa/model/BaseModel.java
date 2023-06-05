@@ -1,4 +1,4 @@
-package polat.mustafa.entity;
+package polat.mustafa.model;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.MappedSuperclass;

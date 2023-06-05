@@ -1,4 +1,4 @@
-package polat.mustafa.entity;
+package polat.mustafa.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -31,7 +31,7 @@ public class City extends BaseModel{
     @OneToMany(fetch = FetchType.LAZY,
                cascade = CascadeType.ALL,
                mappedBy = "city")
-    private List<Weather> weatherList;
+    private List<WeatherDb> weatherList;
 
     @ManyToMany(mappedBy = "citySet", fetch = FetchType.LAZY)
     @JsonIgnore

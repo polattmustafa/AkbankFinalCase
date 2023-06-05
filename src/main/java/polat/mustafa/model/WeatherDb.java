@@ -12,7 +12,7 @@ import lombok.Setter;
 @Table(name = "WEATHER")
 @Getter
 @Setter
-public class Weather extends BaseModel{
+public class WeatherDb extends BaseModel{
 
     @Id
     @GeneratedValue(generator = "Weather", strategy = GenerationType.SEQUENCE)
