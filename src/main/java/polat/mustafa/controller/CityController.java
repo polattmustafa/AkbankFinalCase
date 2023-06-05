@@ -39,4 +39,10 @@ public class CityController {
         return ResponseEntity.ok(RestResponse.empty());
     }
 
+    @GetMapping("/name/{name}")
+    public ResponseEntity<RestResponse<CityDTO>> findByName(@PathVariable String name) {
+        var cityDto = cityControllerContract.findCityByName(name);
+        return ResponseEntity.ok(RestResponse.of(cityDto));
+    }
+
 }
