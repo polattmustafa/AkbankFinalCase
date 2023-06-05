@@ -1,4 +1,4 @@
-package polat.mustafa.model;
+package polat.mustafa.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

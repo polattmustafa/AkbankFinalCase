@@ -26,12 +26,6 @@ public class Weather extends BaseModel{
     @Column(name = "HUMIDITY")
     private Double humidity;
 
-    @Column(name = "LAT")
-    private Double lat;
-
-    @Column(name = "LON")
-    private Double lon;
-
     @Column(name = "DESCRIPTION", length = 400)
     private String description;
 

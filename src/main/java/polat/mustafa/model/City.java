@@ -1,4 +1,4 @@
-package polat.mustafa.model;
+package polat.mustafa.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

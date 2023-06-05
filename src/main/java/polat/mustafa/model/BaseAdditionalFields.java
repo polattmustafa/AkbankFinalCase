@@ -1,4 +1,4 @@
-package polat.mustafa.model;
+package polat.mustafa.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
