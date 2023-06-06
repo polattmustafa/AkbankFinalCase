@@ -1,4 +1,8 @@
-package polat.mustafa.restmodel;/**
+package polat.mustafa.restmodel;
+
+/**
  * @author MPolat
- */public class Sys {
+ */
+public class Sys {
+    public String pod;
 }
