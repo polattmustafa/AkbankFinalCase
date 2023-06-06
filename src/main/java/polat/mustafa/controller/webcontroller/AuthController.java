@@ -2,7 +2,6 @@ package polat.mustafa.controller.webcontroller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,11 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import polat.mustafa.dto.UserDtoWeb;
-import polat.mustafa.dto.user.UserDTO;
 import polat.mustafa.model.User;
 import polat.mustafa.service.UserServiceWeb;
 
-import java.util.List;
 
 /**
  * @author MPolat

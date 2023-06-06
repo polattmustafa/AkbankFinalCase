@@ -1,6 +1,9 @@
 package polat.mustafa.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import polat.mustafa.controller.contract.UserControllerContract;
@@ -10,6 +13,7 @@ import polat.mustafa.general.RestResponse;
 
 import java.util.List;
 
+
 /**
  * @author MPolat
  */
@@ -17,7 +21,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
+@Slf4j
 public class UserController {
+
+    //logging could be like this but I am using Slf4j this time
+    //private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     private final UserControllerContract userControllerContract;
 

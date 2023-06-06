@@ -38,6 +38,8 @@ public class SpringSecurity {
                                 .requestMatchers("/index").permitAll()
                                 .requestMatchers("/styles/**").permitAll()
                                 .requestMatchers("/weather").permitAll()
+                                .requestMatchers("/**").permitAll()
+                                .requestMatchers("/login/**").permitAll()
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")
