@@ -1,12 +1,13 @@
 package polat.mustafa.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import polat.mustafa.controller.contract.CityControllerContract;
-import polat.mustafa.entity.WeatherApiResponse;
-import polat.mustafa.model.City;
+import polat.mustafa.restmodel.Root;
 
 
 /**
@@ -15,11 +16,9 @@ import polat.mustafa.model.City;
 
 @Component
 public class WeatherApiClient {
-
+    Logger logger = LoggerFactory.getLogger(WeatherApiClient.class);
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper;
-
-    private final CityControllerContract cityControllerContract;
 
     @Value("${openweathermap.api.baseurl}")
     private String apiUrl;
@@ -27,27 +26,22 @@ public class WeatherApiClient {
     @Value("${openweathermap.api.key}")
     private String apiKey;
 
-    public WeatherApiClient(RestTemplate restTemplate, ObjectMapper objectMapper, CityControllerContract cityControllerContract) {
+    public WeatherApiClient(RestTemplate restTemplate, ObjectMapper objectMapper) {
         this.restTemplate = restTemplate;
         this.objectMapper = objectMapper;
-        this.cityControllerContract = cityControllerContract;
     }
 
-    public WeatherApiResponse getWeatherForecast(String city) {
-        var cityDb = cityControllerContract.findCityByName(city);
+    public Root getWeatherData(String city) {
+        String url = apiUrl + "?q=" + city + "&appid=" + apiKey+"&lang=tr&units=metric";
+        logger.warn("URL=>"+url);
 
-        // API'ye istek at
-        String url = apiUrl + "?q=" + city + "&appid=" + apiKey;
-        String response = restTemplate.getForObject(url, String.class);
-
-        try {
-            WeatherApiResponse weatherApiResponse = objectMapper.readValue(response, WeatherApiResponse.class);
-
-            return weatherApiResponse;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+        ResponseEntity<Root> response = restTemplate.getForEntity(url, Root.class, city, apiKey);
+        if (response.getStatusCode().is2xxSuccessful()) {
+            return response.getBody();
+        } else {
+            throw new RuntimeException("OpenWeatherMap API'ye istek atılırken bir hata oluştu. Hata kodu: " + response.getStatusCodeValue());
         }
+
     }
 
 }

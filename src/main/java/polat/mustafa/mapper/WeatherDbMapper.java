@@ -14,9 +14,9 @@ import java.util.List;
  */
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface WeatherMapper {
+public interface WeatherDbMapper {
 
-    WeatherMapper INSTANCE = Mappers.getMapper(WeatherMapper.class);
+    WeatherDbMapper INSTANCE = Mappers.getMapper(WeatherDbMapper.class);
 
     WeatherDb convertToWeather(WeatherSaveRequest request);
 
