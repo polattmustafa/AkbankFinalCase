@@ -10,7 +10,5 @@ import java.util.Set;
  * @author MPolat
  */
 public record CityDTO(Long id,
-                      String name,
-                      Set<UserDTO> userDTOSet,
-                      List<WeatherDTO> weatherList) {
+                      String name) {
 }
