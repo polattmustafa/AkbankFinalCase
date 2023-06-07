@@ -29,7 +29,7 @@ public class UserServiceWebImpl implements UserServiceWeb {
     @Override
     public void saveUser(UserDtoWeb userDtoWeb) {
         User user = new User();
-        user.setName(userDtoWeb.getFirstName() + " " + userDtoWeb.getLastName());
+        user.setName(userDtoWeb.getFirstName());
         user.setSurname(userDtoWeb.getLastName());
         user.setUsername(userDtoWeb.getUsername());
         user.setEmail(userDtoWeb.getEmail());
